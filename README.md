@@ -1,0 +1,6 @@
+Project Explanation
+This project is a frontend-only prototype built to explore how Safebox could feel as a calm, trustworthy place to manage personal information. While working on it, the main focus was clarity, restraint, and usability rather than adding too many features.
+The landing page is intentionally simple and welcoming, with subtle motion to give it a polished feel without being distracting. The dashboard is designed to feel stable and organized, where users can quickly scan, search, and manage different types of items such as documents, passwords, and notes.
+All interactions are handled on the client side using state. Things like filtering, searching, removing cards, and empty states are meant to demonstrate clear UI logic and predictable behavior. Animations are kept minimal and purposeful, mostly to improve feedback and visual hierarchy.
+The “AI-assisted” feature is implemented using simple rule-based logic instead of real AI. The idea is to simulate helpful behavior in a transparent way while keeping everything private and frontend-only.
+Overall, the goal of this project was not to build a complete product, but to show thoughtful UI decisions, clean state handling, and an understanding of how a security-focused product should feel in day-to-day use.
