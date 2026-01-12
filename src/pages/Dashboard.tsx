@@ -7,6 +7,7 @@ import CategoryTabs from "@/components/dashboard/CategoryTabs";
 import ItemCard from "@/components/dashboard/ItemCard";
 import EmptyState from "@/components/dashboard/EmptyState";
 import ThemeToggle from "@/components/dashboard/ThemeToggle";
+import ChatWidget from "@/components/dashboard/ChatWidget";
 import { dummyCards, CardItem, Category } from "@/data/dummyData";
 import { useDashboardTheme } from "@/hooks/useDashboardTheme";
 import gsap from "gsap";
@@ -55,41 +56,39 @@ const Dashboard = () => {
   }, [cards]);
 
   return (
-    <div className={`${theme === "dark" ? "dark" : ""}`}>
-      <div className="min-h-screen bg-background flex flex-col md:flex-row transition-colors duration-300">
+    <div className={theme === "dark" ? "dark" : ""}>
+      <div className="flex min-h-screen flex-col bg-background transition-colors duration-300 md:flex-row">
         {/* Mobile Header - Fixed at top */}
         <MobileHeader onMenuToggle={() => setIsMobileSidebarOpen(true)} theme={theme} onThemeToggle={toggleTheme} />
 
-      {/* Mobile Sidebar Drawer */}
-      <MobileSidebar
-        isOpen={isMobileSidebarOpen}
-        onClose={() => setIsMobileSidebarOpen(false)}
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-      />
+        {/* Mobile Sidebar Drawer */}
+        <MobileSidebar
+          isOpen={isMobileSidebarOpen}
+          onClose={() => setIsMobileSidebarOpen(false)}
+          activeCategory={activeCategory}
+          onCategoryChange={handleCategoryChange}
+        />
 
-      {/* Desktop Sidebar */}
-      <Sidebar
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-        isCollapsed={isSidebarCollapsed}
-        onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-      />
+        {/* Desktop Sidebar */}
+        <Sidebar
+          activeCategory={activeCategory}
+          onCategoryChange={handleCategoryChange}
+          isCollapsed={isSidebarCollapsed}
+          onToggleCollapse={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+        />
 
         {/* Main Content */}
-        <main className="flex-1 p-4 md:p-6 lg:p-8 xl:p-10 overflow-auto transition-colors duration-300">
+        <main className="flex-1 overflow-auto p-4 transition-colors duration-300 md:p-6 lg:p-8 xl:p-10">
           {/* Header with Theme Toggle */}
           <header ref={headerRef} className="mb-6 md:mb-8">
             <div className="flex items-start justify-between">
               <div>
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-1 md:mb-1.5 tracking-tight transition-colors duration-300">
+                <h1 className="mb-1 text-xl font-bold tracking-tight text-foreground transition-colors duration-300 md:mb-1.5 md:text-2xl lg:text-3xl">
                   Your Items
                 </h1>
-                <p className="text-muted-foreground text-sm md:text-base transition-colors duration-300">
+                <p className="text-sm text-muted-foreground transition-colors duration-300 md:text-base">
                   Manage your documents, passwords, and notes securely.
-                  <span className="text-muted-foreground/60 ml-1.5">
-                    {categoryCount.all} total items
-                  </span>
+                  <span className="ml-1.5 text-muted-foreground/60">{categoryCount.all} total items</span>
                 </p>
               </div>
               {/* Desktop Theme Toggle */}
@@ -99,26 +98,29 @@ const Dashboard = () => {
             </div>
           </header>
 
-        {/* Search and Filters */}
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4 mb-6 md:mb-8">
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
-          <CategoryTabs activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
-        </div>
-
-        {/* Cards Grid */}
-        {filteredCards.length > 0 ? (
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3 lg:gap-6">
-            {filteredCards.map((card, index) => (
-              <ItemCard key={card.id} item={card} onRemove={handleRemoveCard} index={index} />
-            ))}
+          {/* Search and Filters */}
+          <div className="mb-6 flex flex-col gap-3 md:mb-8 md:flex-row md:items-center md:gap-4">
+            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            <CategoryTabs activeCategory={activeCategory} onCategoryChange={handleCategoryChange} />
           </div>
-        ) : (
-          <EmptyState />
-        )}
-      </main>
+
+          {/* Cards Grid */}
+          {filteredCards.length > 0 ? (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:gap-6 xl:grid-cols-3">
+              {filteredCards.map((card, index) => (
+                <ItemCard key={card.id} item={card} onRemove={handleRemoveCard} index={index} />
+              ))}
+            </div>
+          ) : (
+            <EmptyState />
+          )}
+        </main>
+      </div>
+
+      {/* Static floating assistant preview */}
+      <ChatWidget />
     </div>
-  </div>
-);
+  );
 };
 
 export default Dashboard;

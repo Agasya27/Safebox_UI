@@ -15,7 +15,7 @@ Dashboard
 ------------------------------
 The dashboard represents the core of the application. It uses a sidebar-based layout to organize content into Documents, Passwords, and Notes. The layout is fully responsive, with the sidebar adapting to a collapsible drawer on smaller screens and remaining accessible on desktop.
 The main content area displays items as cards, making it easy to scan, filter, and manage information. Search, category filtering, card removal, and empty-state handling are implemented entirely through client-side state, ensuring transparent and consistent behavior.
-A light and dark mode toggle is included for the dashboard to enhance accessibility and user comfort, while maintaining visual consistency across themes.
+A light and dark mode toggle is included for the dashboard to enhance accessibility and user comfort, while maintaining visual consistency across themes. A floating assistant entry point sits in the lower-right corner; clicking it reveals a static chat preview with typeable input to illustrate how future live guidance might look without wiring an active backend.
 --------------------------------
 Card Interactions
 --------------------------------
@@ -37,6 +37,6 @@ Styling is handled with Tailwind CSS
 Animations are implemented using GSAP where appropriate
 -----------------------------
 Summary
----------------------
+--------------------
 This project demonstrates a balanced frontend approach that prioritizes clarity, restraint, and real-world usability. Rather than focusing on feature volume, the implementation emphasizes clean UI structure, predictable state handling, and design decisions that align with a security-conscious product like Safebox.
 --------------------
