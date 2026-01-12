@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Safebox Design System - Calm, Premium, Trust-focused */
+
+@layer base {
+  :root {
+    /* Warm off-white backgrounds */
+    --background: 42 35% 96%;
+    --foreground: 163 40% 15%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 163 40% 15%;
+
+    /* Popovers */
+    --popover: 0 0% 100%;
+    --popover-foreground: 163 40% 15%;
+
+    /* Primary - Safebox green */
+    --primary: 160 45% 18%;
+    --primary-foreground: 42 35% 96%;
+
+    /* Secondary - Muted sage */
+    --secondary: 145 18% 92%;
+    --secondary-foreground: 163 35% 22%;
+
+    /* Muted tones */
+    --muted: 42 20% 92%;
+    --muted-foreground: 163 12% 48%;
+
+    /* Accent - Light sage */
+    --accent: 150 25% 94%;
+    --accent-foreground: 160 45% 18%;
+
+    /* Destructive */
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 145 12% 88%;
+    --input: 145 12% 88%;
+    --ring: 160 45% 18%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Dark forest green */
+    --sidebar-background: 163 42% 14%;
+    --sidebar-foreground: 42 30% 94%;
+    --sidebar-primary: 152 55% 50%;
+    --sidebar-primary-foreground: 42 30% 94%;
+    --sidebar-accent: 163 38% 20%;
+    --sidebar-accent-foreground: 42 30% 94%;
+    --sidebar-border: 163 35% 22%;
+    --sidebar-ring: 152 55% 50%;
+
+    /* Custom Safebox tokens */
+    --safebox-cream: 42 35% 96%;
+    --safebox-green: 160 45% 18%;
+    --safebox-green-light: 152 55% 50%;
+    --safebox-dark: 163 42% 14%;
+    --safebox-sage: 145 18% 92%;
+    --safebox-text: 163 40% 15%;
+
+    /* Password strength colors */
+    --strength-weak: 0 70% 55%;
+    --strength-medium: 38 92% 50%;
+    --strength-strong: 152 55% 42%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(163 40% 15% / 0.04);
+    --shadow-md: 0 4px 6px -1px hsl(163 40% 15% / 0.06), 0 2px 4px -2px hsl(163 40% 15% / 0.04);
+    --shadow-lg: 0 10px 15px -3px hsl(163 40% 15% / 0.08), 0 4px 6px -4px hsl(163 40% 15% / 0.04);
+    --shadow-card: 0 1px 3px 0 hsl(163 40% 15% / 0.05), 0 1px 2px -1px hsl(163 40% 15% / 0.05);
+    --shadow-card-hover: 0 10px 20px -5px hsl(163 40% 15% / 0.1), 0 4px 6px -4px hsl(163 40% 15% / 0.05);
+  }
+
+  .dark {
+    --background: 163 42% 8%;
+    --foreground: 42 30% 94%;
+
+    --card: 163 38% 12%;
+    --card-foreground: 42 30% 94%;
+
+    --popover: 163 38% 12%;
+    --popover-foreground: 42 30% 94%;
+
+    --primary: 152 55% 50%;
+    --primary-foreground: 163 42% 8%;
+
+    --secondary: 163 30% 18%;
+    --secondary-foreground: 42 30% 94%;
+
+    --muted: 163 30% 18%;
+    --muted-foreground: 145 12% 60%;
+
+    --accent: 163 30% 18%;
+    --accent-foreground: 152 55% 55%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 163 28% 20%;
+    --input: 163 28% 20%;
+    --ring: 152 55% 50%;
+
+    --sidebar-background: 163 45% 6%;
+    --sidebar-foreground: 42 30% 94%;
+    --sidebar-primary: 152 55% 50%;
+    --sidebar-primary-foreground: 163 42% 8%;
+    --sidebar-accent: 163 35% 12%;
+    --sidebar-accent-foreground: 42 30% 94%;
+    --sidebar-border: 163 30% 15%;
+    --sidebar-ring: 152 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Hide scrollbar for horizontal scroll areas */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
